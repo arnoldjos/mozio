@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import environ
 
-from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 ROOT_DIR = (
         environ.Path(__file__) - 3
@@ -28,7 +27,7 @@ SECRET_KEY = 'django-insecure-a!u-($(4-wpcq^$n@3fryj4bkg)u0%t-$^*&1##g8t*5ch9f-r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "mozio.eba-4drn23pg.us-east-1.elasticbeanstalk.com"]
 
 
 # Application definition
@@ -80,17 +79,34 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 # Rename NAME, USER and PASSWORD if necessary
+# db_name = "postgres"
+# db_user = "postgres"
+# db_pass = "postgres"
+# db_host = "127.0.0.1"
+# db_port = "5432"
+# if 'RDS_HOSTNAME' in os.environ:
+#     db_name = os.environ['RDS_DB_NAME']
+#     db_user = os.environ['RDS_USERNAME']
+#     db_pass = os.environ['RDS_PASSWORD']
+#     db_host = os.environ['RDS_HOSTNAME']
+#     db_port = os.environ['RDS_PORT']
+#
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": db_name,
+#         "USER": db_user,
+#         "PASSWORD": db_pass,
+#         "HOST": db_host,
+#         "PORT": db_port,
+#     }
+# }
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ROOT_DIR.root + '/db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
