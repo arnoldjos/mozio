@@ -25,7 +25,7 @@ APPS_DIR = ROOT_DIR.path("mozio")
 SECRET_KEY = 'django-insecure-a!u-($(4-wpcq^$n@3fryj4bkg)u0%t-$^*&1##g8t*5ch9f-r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "mozio.eba-4drn23pg.us-east-1.elasticbeanstalk.com"]
 
@@ -149,7 +149,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
+STATIC_ROOT = str(APPS_DIR("collected_static"))
+STATICFILES_DIRS = [str(APPS_DIR.path("static"))]
+
+MEDIA_ROOT = str(APPS_DIR("media"))
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
