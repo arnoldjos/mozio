@@ -151,7 +151,6 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = str(APPS_DIR("collected_static"))
-STATICFILES_DIRS = [str(APPS_DIR.path("static"))]
 
 MEDIA_ROOT = str(APPS_DIR("media"))
 MEDIA_URL = "/media/"
