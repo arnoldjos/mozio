@@ -3,7 +3,6 @@
 ### Requirements
 
 - Python 3.7 or higher
-- PostgreSQL
 
 ### Setup
 
